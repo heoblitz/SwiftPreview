@@ -5,10 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "SwiftPreview",
+    platforms: [.iOS(.v13), .tvOS(.v13)],
     products: [
         .library(
             name: "SwiftPreview",
-            targets: ["SwiftPreview"]),
+            targets: ["SwiftPreview"]
+        ),
     ],
     dependencies: [],
     targets: [
