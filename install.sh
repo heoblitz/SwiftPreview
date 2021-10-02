@@ -1,7 +1,4 @@
 #!/usr/bin/env sh
-
-echo $SwiftPreviews
-
 # path
 XCODE_DIR=$HOME'/Library/Developer/Xcode'
 XCODE_TEMPLATE_DIR=$HOME'/Library/Developer/Xcode/Templates/File Templates/SwiftPreview'
@@ -19,7 +16,7 @@ init() {
 
   # check template folder
   if [ ! -d "$XCODE_TEMPLATE_DIR" ]; then
-    echo "Add: template folder 🗂"
+    echo "Add: Template folder 🗂"
     mkdir -p "$XCODE_TEMPLATE_DIR"
     echo "-> ${XCODE_TEMPLATE_DIR}"
   fi
@@ -45,27 +42,56 @@ install() {
     "UIViewControllerXIBSwift"
   )
 
+  CORES=(
+    "TemplateIcon-1016.png"
+    "TemplateIcon-1016@2x.png"
+    "TemplateInfo.plist"
+  )
+
   mkdir "$VIEW_PATH"
   mkdir "$CONTROLLER_PATH"
 
   for NAME in ${VIEWS[@]}; do
     CURRENT_PATH="${VIEW_PATH}/${NAME}"
     mkdir "$CURRENT_PATH"
-    download "${GIT_PATH}/SwiftPreview.xctemplate/${NAME}/___FILEBASENAME___.swift"
+    FILE_URL="${GIT_PATH}/SwiftPreview.xctemplate/${NAME}/___FILEBASENAME___.swift"
+    download "$CURRENT_PATH" "$FILE_URL" "${NAME}/___FILEBASENAME___.swift"
+
+    if [[ $NAME == *"XIB"* ]]; then
+      FILE_URL="${GIT_PATH}/SwiftPreview.xctemplate/${NAME}/___FILEBASENAME___.xib"
+      download "$CURRENT_PATH" "$FILE_URL" "${NAME}/___FILEBASENAME___.xib"
+    fi
+  done
+
+  for NAME in ${CORES[@]}; do
+    FILE_URL="${GIT_PATH}/SwiftPreview.xctemplate/${NAME}"
+    download "$VIEW_PATH" "$FILE_URL" "${NAME}"
   done
 
   for NAME in ${CONTROLLERS[@]}; do
-    mkdir "${CONTROLLER_PATH}/${NAME}"
+    CURRENT_PATH="${CONTROLLER_PATH}/${NAME}"
     mkdir "$CURRENT_PATH"
-    download "${GIT_PATH}/SwiftPreviewController.xctemplate/${NAME}/___FILEBASENAME___.swift"
+    FILE_URL="${GIT_PATH}/SwiftPreviewController.xctemplate/${NAME}/___FILEBASENAME___.swift"
+    download "$CURRENT_PATH" "$FILE_URL" "${NAME}/___FILEBASENAME___.swift"
+
+    if [[ $NAME == *"XIB"* ]]; then
+      FILE_URL="${GIT_PATH}/SwiftPreviewController.xctemplate/${NAME}/___FILEBASENAME___.xib"
+      download "$CURRENT_PATH" "$FILE_URL" "${NAME}/___FILEBASENAME___.xib"
+    fi
   done
+
+  for NAME in ${CORES[@]}; do
+    FILE_URL="${GIT_PATH}/SwiftPreviewController.xctemplate/${NAME}"
+    download "$CONTROLLER_PATH" "$FILE_URL" "${NAME}"
+  done
+
+  echo "Complete: SwiftPreview template installed 🖼"
 }
 
 download() {
-  echo "$1"
-  cd "" && { curl -sSOL "$1" ; cd -; }
+  echo "Download: ${3} 🗳"
+  cd "$1" && { curl -sSOL "$2" ; cd - > /dev/null ; }
 }
 
 init
 install
-
