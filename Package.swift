@@ -16,8 +16,7 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftPreview",
-            dependencies: [],
-            exclude: ["Templates"]
+            dependencies: []
         ),
         .testTarget(
             name: "SwiftPreviewTests",
