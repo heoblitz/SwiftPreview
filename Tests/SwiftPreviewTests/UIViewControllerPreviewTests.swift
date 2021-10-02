@@ -31,7 +31,7 @@ import UIKit
 import XCTest
 @testable import SwiftPreview
 
-final class UIViewControllerPreviewTests: XCTestCase {
+class UIViewControllerPreviewTests: XCTestCase {
     var sut: UIViewControllerPreview<UIViewController>!
     
     override func setUpWithError() throws {

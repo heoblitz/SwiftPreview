@@ -16,9 +16,12 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftPreview",
-            dependencies: []),
+            dependencies: [],
+            exclude: ["Templates"]
+        ),
         .testTarget(
             name: "SwiftPreviewTests",
-            dependencies: ["SwiftPreview"]),
+            dependencies: ["SwiftPreview"]
+        ),
     ]
 )

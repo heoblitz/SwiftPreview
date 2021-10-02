@@ -35,7 +35,7 @@ import SwiftUI
 public struct UIViewControllerPreview<Content>: UIViewControllerRepresentable where Content : UIViewController {
     let builder: () -> Content
     
-    init(_ builder: @escaping () -> Content) {
+    public init(_ builder: @escaping () -> Content) {
         self.builder = builder
     }
     
