@@ -10,10 +10,9 @@ Template support class inherit from UIView and UIViewController
 2. Xcode > New File (Command + N)  
 You can choose Preview or PreviewController
 
+![](https://i.imgur.com/jHhcl2M.png)
 - Preview > (UIView, UITableViewCell, UICollectionViewCell, UICollectionReusableView)  
 - PreviewController > (UIViewController, UITableViewController, UICollectionViewController)  
-
-![](https://i.imgur.com/jHhcl2M.png)
 
 3. Make file then preview will work!  
 
@@ -46,7 +45,7 @@ pod 'SwiftPreview'
 ```
 
 
-## UnInstall
+## UnInstallation
 1. Remove dependency
 2. Delete template files
 ```bash
