@@ -1,23 +1,44 @@
 # SwiftPreview
 
-Preview template for UIkit based project
+Preview template for UIkit based project  
+Template support class inherit from UIView and UIViewController
 
-<img src="https://i.imgur.com/kiFqmCV.png " width="680" height="400" />
+![](https://i.imgur.com/6Qr7fgp.png)
 
-## Download Xcode Template
+## How to use?
+1. [Download Xcode Template](#Download_Xcode_Template) & [Install SwiftPreview](#Installation)  
+2. Xcode > New File (Command + N)  
+You can choose Preview or PreviewController
+
+- Preview > (UIView, UITableViewCell, UICollectionViewCell, UICollectionReusableView)  
+- PreviewController > (UIViewController, UITableViewController, UICollectionViewController)  
+
+![](https://i.imgur.com/jHhcl2M.png)
+
+3. Make file then preview will work!  
+
+## Download Xcode Template <a id="Download_Xcode_Template"></a>
 
 ### Auto Setup 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/heoblitz/SwiftPreview/main/install.sh)"
 ```
 
+### Manual Setup
+```bash
+git clone https://github.com/heoblitz/SwiftPreview.git
+cd SwiftPreview
+mkdir -p ~/Library/Developer/Xcode/Templates/File\ Templates/SwiftPreview
+cp -r Templates/. ~/Library/Developer/Xcode/Templates/File\ Templates/SwiftPreview
+```
+
 ### 
 
-## Installation
+## Installation <a id="Installation"></a>
 
 ### Swift Package Manager
-Project > Project Dependencies > Add `https://github.com/heoblitz/SwiftPreview`  
-
+Project > Project Dependencies > Add   
+`https://github.com/heoblitz/SwiftPreview`  
 
 ### Cocoapods
 ```ruby
@@ -25,5 +46,12 @@ pod 'SwiftPreview'
 ```
 
 
-## Lincense
+## UnInstall
+1. Remove dependency
+2. Delete template files
+```bash
+rm -r ~/Library/Developer/Xcode/Templates/File\ Templates/SwiftPreview
+```
+
+## License
 MIT
