@@ -1,6 +1,6 @@
 # SwiftPreview
 
-Preview template for UIkit based project.  
+XCode Preview template for UIkit based project.  
 Support custom file template class inherit from UIView and UIViewController.
 
 ![](https://i.imgur.com/6Qr7fgp.png)
