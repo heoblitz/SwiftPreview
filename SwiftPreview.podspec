@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
   spec.license          = "MIT"
   spec.author           = { "heoblitz" => "qndlf22@naver.com" }
   spec.source           = { :git => "https://github.com/heoblitz/SwiftPreview.git", :tag => spec.version.to_s }
-  spec.source_files     = "Sources/SPImageFilter/*.swift"
+  spec.source_files     = "Sources/SwiftPreview/*.swift"
   spec.requires_arc     = true
   spec.swift_version = "5.0"
   spec.ios.deployment_target = "13.0"
